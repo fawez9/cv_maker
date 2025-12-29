@@ -114,6 +114,7 @@ const fieldConfigs = {
     ],
     project: [
         { class: 'proj-name', label: 'Project Name' },
+        { class: 'proj-date', label: 'Year' },
         { class: 'proj-desc', label: 'Description', isTextarea: true }
     ],
     skill: [
@@ -318,7 +319,10 @@ function updatePreview() {
             ? `<div class="cv-entry-description"><ul>${bullets.map(b => `<li>${b.trim()}</li>`).join('')}</ul></div>`
             : '';
         return `<div class="cv-entry">
-            <div class="cv-entry-title"><span>${entry['proj-name']}</span></div>
+            <div class="cv-entry-title">
+                <span>${entry['proj-name']}</span>
+                <span class="cv-entry-date">${entry['proj-date']}</span>
+            </div>
             ${descHtml}
         </div>`;
     });
@@ -337,21 +341,7 @@ function updatePreview() {
 }
 
 function downloadPDF() {
-    const element = document.getElementById('cvPreview');
-    const opt = {
-        margin: 10,
-        filename: 'cv.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
-    };
-    
-    if (typeof html2pdf !== 'undefined') {
-        html2pdf().set(opt).from(element).save();
-    } else {
-        alert('PDF library not loaded. Using print instead.');
-        window.print();
-    }
+    window.print();
 }
 
 // Event Listeners
