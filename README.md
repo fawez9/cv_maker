@@ -22,5 +22,3 @@ Files
 Notes
 - No build step required — everything runs in the browser.
 - PDF export relies on the included html2pdf CDN script in `index.html`.
-
-Enjoy — let me know if you want a demo or enhancements.
