@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CV Maker</h1>
+            <button id="langToggle" class="lang-btn" data-en="Français" data-fr="Italiano" data-it="English" aria-label="Change language">Français</button>
+        </div>
+
+        <div class="main-content">
+            <div class="form-section">
+                <form id="cvForm">
+                    <!-- Name Section -->
+                    <div class="form-group">
+                        <label for="name" data-en="Full Name" data-fr="Nom Complet" data-it="Nome Completo">Full Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+
+                    <!-- Infos Section -->
+                    <fieldset>
+                        <legend data-en="Contact Information" data-fr="Informations de Contact" data-it="Informazioni di Contatto">Contact Information</legend>
+                        <div class="form-group">
+                            <label for="email" data-en="Email" data-fr="Email" data-it="Email">Email</label>
+                            <input type="email" id="email" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-en="Phone" data-fr="Téléphone" data-it="Telefono">Phone</label>
+                            <input type="tel" id="phone" placeholder="+1 234 567 8900">
+                        </div>
+                        <div class="form-group">
+                            <label for="location" data-en="Location" data-fr="Localisation" data-it="Posizione">Location</label>
+                            <input type="text" id="location" placeholder="City, Country">
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin" data-en="LinkedIn URL" data-fr="URL LinkedIn" data-it="URL LinkedIn">LinkedIn URL</label>
+                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                        </div>
+                        <div class="form-group">
+                            <label for="github" data-en="GitHub URL (Optional)" data-fr="URL GitHub (Optionnel)" data-it="URL GitHub (Opzionale)">GitHub URL (Optional)</label>
+                            <input type="url" id="github" placeholder="https://github.com/yourprofile">
+                        </div>
+                    </fieldset>
+
+                    <!-- Summary Section -->
+                    <div class="form-group">
+                        <label for="summary" data-en="Professional Summary" data-fr="Résumé Professionnel" data-it="Sommario Professionale">Professional Summary</label>
+                        <textarea id="summary" rows="4" placeholder="Brief overview of your professional background..."></textarea>
+                    </div>
+
+                    <!-- Education Section -->
+                    <fieldset>
+                        <legend data-en="Education" data-fr="Éducation" data-it="Istruzione">Education</legend>
+                        <div id="educationContainer"></div>
+                        <button type="button" id="addEducation" class="add-btn" data-en="+ Add Education" data-fr="+ Ajouter Éducation" data-it="+ Aggiungi Istruzione">+ Add Education</button>
+                    </fieldset>
+
+                    <!-- Experience Section -->
+                    <fieldset>
+                        <legend data-en="Experience" data-fr="Expérience" data-it="Esperienza">Experience</legend>
+                        <div id="experienceContainer"></div>
+                        <button type="button" id="addExperience" class="add-btn" data-en="+ Add Experience" data-fr="+ Ajouter Expérience" data-it="+ Aggiungi Esperienza">+ Add Experience</button>
+                    </fieldset>
+
+                    <!-- Projects Section -->
+                    <fieldset>
+                        <legend data-en="Projects (Optional)" data-fr="Projets (Optionnel)" data-it="Progetti (Opzionali)">Projects (Optional)</legend>
+                        <div id="projectsContainer"></div>
+                        <button type="button" id="addProject" class="add-btn" data-en="+ Add Project" data-fr="+ Ajouter Projet" data-it="+ Aggiungi Progetto">+ Add Project</button>
+                    </fieldset>
+
+                    <!-- Skills Section -->
+                    <fieldset>
+                        <legend data-en="Skills" data-fr="Connaissances" data-it="Competenze">Skills</legend>
+                        <div id="skillsContainer"></div>
+                        <button type="button" id="addSkill" class="add-btn" data-en="+ Add Skill Category" data-fr="+ Ajouter Catégorie" data-it="+ Aggiungi Categoria">+ Add Skill Category</button>
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <button type="button" id="downloadPDF" class="btn-primary" data-en="Download PDF" data-fr="Télécharger PDF" data-it="Scarica PDF">Download PDF</button>
+                        <button type="reset" class="btn-secondary" data-en="Clear" data-fr="Effacer" data-it="Cancella">Clear</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="preview-section">
+                <div id="cvPreview" class="cv-preview">
+                    <!-- CV preview will be generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
